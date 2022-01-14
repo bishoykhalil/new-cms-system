@@ -77,7 +77,7 @@
               </span>
                 </div>
           </div>
-          
+
         </div>
 
         <!-- Categories Widget -->
@@ -143,7 +143,7 @@
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- by me  -->
- 
+
 
 @yield('scripts')
 
