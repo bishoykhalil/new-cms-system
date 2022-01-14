@@ -23,6 +23,10 @@
                        aria-describedby=""
                        placeholder="Enter Title">
             </div>
+            <select  >omk
+            <option value="1"></option>
+             <option value="2"></option>
+            </select>
             <div class="form-group">
                 <textarea class="form-group" name="body" id="body" cols="40" rows="10"> </textarea>
             </div>

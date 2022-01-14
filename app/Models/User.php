@@ -51,4 +51,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(post::class);
     }
+    public function crs()
+        {
+            return $this->hasMany(Crs::class);
+        }
 }
