@@ -14,18 +14,12 @@ class CreateCrsTable extends Migration
     public function up()
     {
         Schema::create('crs', function (Blueprint $table) {
-
-  $table->id();
-            $table->integer('release_id')->unsigned()->nullable()->index();
-            $table->string('cr_name');
-            $table->integer('tcs_total');
-            $table->integer('tcs_success')->default('0');
-            $table->integer('tcs_failed')->default('0');
-            $table->integer('tcs_blocked')->default('0');
-            $table->integer('tcs_invalid')->default('0');
-            $table->text('notes')->nullable();
-            $table->timestamps();
-
+            $table->integer('id');
+            $table->string('name');
+            $table->string('status');
+            $table->integer('release_id');
+            $table->boolean('hasIOT')->default(0);
+            $table->boolean('hasE2E')->default(0); 
         });
     }
 
