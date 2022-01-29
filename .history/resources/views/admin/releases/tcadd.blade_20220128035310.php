@@ -1,0 +1,35 @@
+<x-admin-master>
+    @section('content')
+    <h4>Add New Test Case</h1>
+    <h3 > <strong> {{$crName}} </h3></strong>
+  <br> 
+        <form method="post" action="{{route('system.store')}}" enctype="multipart/form-data" >
+            @csrf
+                <div class="form-group">
+                    <label for="title">Test Case Name</label>
+                    <input type="text"
+                           name="name"
+                           class="form-control"
+                           id="systemName"
+                           aria-describedby=""
+                           placeholder="Enter System Name">
+                </div>
+                <div class="form-group">
+                    <label for="status" >Status</label>
+    
+                    <select class="form-group" name="status" id="status">  
+                    <option value="Not Started">Not Started</option>            
+                      <option value="Passed">Passed</option>
+                      <option value="Blocked">Blocked</option>
+                      <option value="Failed">Failed</option>
+                      <option value="Invalied">Invalied</option>
+                      <option value="Execluded">Execluded</option>
+                      
+                    </select>
+                
+                </div>
+                
+
+
+@endsection
+</x-admin-master>   
