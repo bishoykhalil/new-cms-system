@@ -5,25 +5,25 @@
 <h1 class="my-4">December Release
           <small>Currents CRs</small>
         </h1>
-      
+
         <!-- Blog Post -->
-        @foreach ($posts as $post)
-            
-       
+        @foreach ($crs as $cr)
+
+
         <div class="card mb-4">
           {{-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> --}}
           <div class="card-body">
-            <h2 class="card-title">{{$post->title}}</h2>
-            <p class="card-text">{{$post->body}}</p>
-            <a href="{{route('post',$post->id)}}" class="btn btn-primary">Read More &rarr;</a>
+            <h2 class="card-title">{{$cr->name}}</h2>
+
+            <a href="#" class="btn btn-primary">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-             {{$post->created_at->diffForHumans()}} By {{$post->user->name}}
+            By
             <a href="#"></a>
           </div>
         </div>
 @endforeach
-       
+
 
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
@@ -34,7 +34,7 @@
             <a class="page-link" href="#">Newer &rarr;</a>
           </li>
         </ul>
-        
+
      @endsection
-     
+
 </x-home-master>

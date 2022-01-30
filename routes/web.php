@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/post/{post}', [App\Http\Controllers\PostController::class, 'show'])->name('post');
 
 
@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/posts/{post}/destroy', [App\Http\Controllers\PostController::class, 'destroy'])->name('post.destroy');
     Route::patch('/admin/posts/{post}/update', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
 
-    //new system 
+    //new system
     Route::get('/admin/releases/systemcreate', [App\Http\Controllers\SystemController::class, 'create'])->name('system.create');
     Route::post('/admin/systems', [App\Http\Controllers\SystemController::class, 'store'])->name('system.store');
 
@@ -33,12 +33,13 @@ Route::middleware('auth')->group(function () {
 
     //new CR
     Route::get('/admin/releases/crcreate', [App\Http\Controllers\CrController::class, 'create'])->name('cr.create');
-    Route::post('/admin/releases/crs', [App\Http\Controllers\CrController::class, 'store'])->name('cr.store');
-    Route::get('/', [App\Http\Controllers\CrController::class, 'index'])->name('home');
-    //Route::get('/post/{post}', [App\Http\Controllers\CrController::class, 'show'])->name('post');
+    Route::post('/admin/releases/crsave', [App\Http\Controllers\CrController::class, 'store'])->name('cr.store');
+    Route::post('/admin/releases/crs', [App\Http\Controllers\CrController::class, 'index'])->name('cr.index');
+
+
     //new TC
     Route::get('/admin/releases/{cr}/tccreate', [App\Http\Controllers\TcController::class, 'create'])->name('tc.create');
     Route::post('/admin/releases/{cr}/tcs', [App\Http\Controllers\TcController::class, 'store'])->name('tc.store');
-    
-  
+
+
 });

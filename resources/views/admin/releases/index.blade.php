@@ -1,4 +1,4 @@
-<x-admin-master>
+{{-- <x-admin-master>
     @section('content')
 
         <h1>All Posts</h1>
@@ -24,8 +24,8 @@
                             <th>Created At</th>
                             <th>Created By</th>
                             <th>Delete</th>
-                           
-                         
+
+
                         </tr>
                         </thead>
                         {{-- <tfoot>
@@ -34,11 +34,11 @@
                             <th>title</th>
                             <th>Created At</th>
                             <th>Updated At</th>
-                            
+
                         </tr>
                         </tfoot> --}}
                         <tbody>
-                        @foreach($posts as $post)    
+                        @foreach($posts as $post)
           <tr>
               <td>{{$post->id}}</td>
               <td><a href="{{route('post.edit',$post->id)}}">{{$post->title}}</a></td>
@@ -51,10 +51,10 @@
                         @method('DELETE')
 
                     <button type="submit" class="btn btn-danger" >Delete</button>
-                
+
                 </form>
               </td>
-              
+
           </tr>
 @endforeach
                         </tbody>
@@ -79,4 +79,4 @@
 
         @endsection
 
-</x-admin-master>
+</x-admin-master> --}}

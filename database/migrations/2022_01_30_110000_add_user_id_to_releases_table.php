@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdCoulmnToCrsTable extends Migration
+class AddUserIdToReleasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddUserIdCoulmnToCrsTable extends Migration
      */
     public function up()
     {
-        Schema::table('crs', function (Blueprint $table) {
+        Schema::table('releases', function (Blueprint $table) {
             //
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id');
         });
     }
 
@@ -26,7 +26,8 @@ class AddUserIdCoulmnToCrsTable extends Migration
      */
     public function down()
     {
-        Schema::table('crs', function (Blueprint $table) {
+        Schema::table('releases', function (Blueprint $table) {
+            //
             $table->dropColumn('user_id');
         });
     }

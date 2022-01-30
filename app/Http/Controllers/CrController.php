@@ -24,7 +24,7 @@ public function show(){
         return view('admin.releases.crcreate',['releases'=>$releases,'crs'=>$crs]);
     }
      public function store(Request $request){
-       
+
         // $inputs =   request()->validate([
         //  'release_id'=>'required',
         // 'name'=>'required',
