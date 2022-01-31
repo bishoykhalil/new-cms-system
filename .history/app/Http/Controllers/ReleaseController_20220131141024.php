@@ -38,7 +38,7 @@ class ReleaseController extends Controller
         $systems = System::all();
 
 
-     
+        if (auth()->user()->id !== $release->user_id)
         $release->update(['active'=>'0']);
 
       return redirect()->route('release.create',['systems'=>$systems,'releases'=>$releases]);

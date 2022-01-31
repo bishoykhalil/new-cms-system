@@ -15,10 +15,7 @@ public function show(){
 }
 public function index(){
 
-  $crs = auth()->user()->crs;
-
-
- 
+  $crs = Crs::all();
   return view('home',['crs'=>$crs]);
 
 }

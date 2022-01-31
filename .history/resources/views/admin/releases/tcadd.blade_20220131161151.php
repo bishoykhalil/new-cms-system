@@ -40,7 +40,7 @@
 
                         <br>
             <button type="submit" class="btn btn-primary">Add Test Case</button>
-           
+            <a class="page-link" href="{{route('cr.create')}}">Create Another CR</a>
 
  <!-- show all TCs for CR -->
 <br>
@@ -77,7 +77,7 @@
   </div>
 </div>
 
-<a class="page-link" href="{{route('cr.create')}}">&larr;  Back to CRs</a>
+
     
 
     @section('scripts')

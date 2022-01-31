@@ -10,15 +10,15 @@ class TcController extends Controller
 {
     //
     public function  create(Crs $cr){
-        $tcs = Tc::all();
-        return view('admin.releases.tcadd',['cr'=>$cr,'tcs'=>$tcs]);
+     
+        return view('admin.releases.tcadd',['cr'=>$cr]);
     }
 
 
     public function store(Request $request,Crs $cr){
         
         $crs= Crs::all();
-       
+        $tcs = Tc::all()->where('crs_id',$cr->id);
         $Tc = new Tc;
 
         $Tc->crs_id =$cr->id;

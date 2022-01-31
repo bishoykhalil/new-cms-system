@@ -15,10 +15,10 @@ public function show(){
 }
 public function index(){
 
-  $crs = auth()->user()->crs;
+  $crs = auth()->user()->crs();
 
 
- 
+  dd( $crs);
   return view('home',['crs'=>$crs]);
 
 }

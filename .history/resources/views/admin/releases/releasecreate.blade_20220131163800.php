@@ -106,7 +106,7 @@
   </div>
 </div>
 
-<a class="page-link" href="{{route('cr.create')}}">  Create CR &rarr; </a>
+<a class="page-link" href="{{route('release.create')}}">  Create CR &larr; </a>
 
     @endsection
 

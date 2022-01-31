@@ -15,7 +15,7 @@ public function show(){
 }
 public function index(){
 
-  $crs = auth()->user()->crs;
+  $crs = auth()->user()->crs();
 
 
  

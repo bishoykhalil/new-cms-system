@@ -40,7 +40,6 @@
 
                         <br>
             <button type="submit" class="btn btn-primary">Add Test Case</button>
-           
 
  <!-- show all TCs for CR -->
 <br>
@@ -61,7 +60,7 @@
              
               <tbody>
                  
-               @foreach ($tcs->where('crs_id',$cr->id) as $tc)    
+               @foreach ($tcs->where('cr_id',$cr->id) as $tc)    
             
 <tr>
      <td>{{$tc->name}}</td> 
@@ -77,7 +76,7 @@
   </div>
 </div>
 
-<a class="page-link" href="{{route('cr.create')}}">&larr;  Back to CRs</a>
+
     
 
     @section('scripts')

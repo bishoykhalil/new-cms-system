@@ -77,7 +77,7 @@
   </div>
 </div>
 
-<a class="page-link" href="{{route('cr.create')}}">&larr;  Back to CRs</a>
+<a class="page-link" href="{{route('cr.create')}}">Create Another CR</a>
     
 
     @section('scripts')

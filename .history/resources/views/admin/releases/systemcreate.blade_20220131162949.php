@@ -83,7 +83,7 @@
 </div>
 
 
-<a class="page-link" href="{{route('release.create')}}">  Create Release &rarr; </a>
+<a class="page-link" href="{{route('release.create')}}">&larr;  Create Release </a>
     @endsection
 
     @section('scripts')

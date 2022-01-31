@@ -10,15 +10,15 @@ class TcController extends Controller
 {
     //
     public function  create(Crs $cr){
-        $tcs = Tc::all();
-        return view('admin.releases.tcadd',['cr'=>$cr,'tcs'=>$tcs]);
+     
+        return view('admin.releases.tcadd',['cr'=>$cr]);
     }
 
 
     public function store(Request $request,Crs $cr){
         
         $crs= Crs::all();
-       
+        $tcs = Tc::all();
         $Tc = new Tc;
 
         $Tc->crs_id =$cr->id;
@@ -40,7 +40,7 @@ class TcController extends Controller
 
     //    // Session()->flash('system-created-message',$inputs['name'].' Created Successfully');
        
-     return redirect()->route('tc.create',['cr'=>$cr]);
+     return redirect()->route('tc.create',['cr'=>$cr,'tcs'=>$tcs]);
 
    
    
