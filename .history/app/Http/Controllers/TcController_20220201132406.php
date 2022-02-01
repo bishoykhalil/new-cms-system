@@ -24,7 +24,7 @@ class TcController extends Controller
     }
 
 
-    public function store(Request $request,Crs $cr,$view_name){
+    public function store(Request $request,Crs $cr){
      
         $crs= Crs::all();
         $tcs = Tc::all();
@@ -37,16 +37,16 @@ class TcController extends Controller
         $Tc->scope = $request->scope;
         $Tc->save();
               
+        view()->composer('*', function($view){
+            $view_name = str_replace('.', '-', $view->getName());
 
-      //  $view_name =view()->share('view_name');
-       
-if ($view_name == 'cr-tc'){
-    return redirect()->route('tc.show',['cr'=>$cr,'tcs'=>$tcs]);
-  }else {
+if ($view_name == 'tc.create'){
     return redirect()->route('tc.create',['cr'=>$cr]);
+}else {
+    return redirect()->route('cr-tc',['cr'=>$cr,'tcs'=>$tcs]);
 }
+
      
+    }
 
- return $view_name;
-}}
-
+}

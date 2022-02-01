@@ -42,7 +42,8 @@ class TcController extends Controller
        
 if ($view_name == 'cr-tc'){
     return redirect()->route('tc.show',['cr'=>$cr,'tcs'=>$tcs]);
-  }else {
+  
+}else {
     return redirect()->route('tc.create',['cr'=>$cr]);
 }
      

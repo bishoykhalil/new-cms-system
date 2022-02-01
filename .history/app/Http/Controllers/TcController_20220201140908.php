@@ -40,11 +40,11 @@ class TcController extends Controller
 
       //  $view_name =view()->share('view_name');
        
-if ($view_name == 'cr-tc'){
-    return redirect()->route('tc.show',['cr'=>$cr,'tcs'=>$tcs]);
-  }else {
-    return redirect()->route('tc.create',['cr'=>$cr]);
-}
+// if ($view_name == 'tc.create'){
+//     return redirect()->route('tc.create',['cr'=>$cr]);
+// }else {
+//     return redirect()->route('tc.show',['cr'=>$cr,'tcs'=>$tcs]);
+// }
      
 
  return $view_name;

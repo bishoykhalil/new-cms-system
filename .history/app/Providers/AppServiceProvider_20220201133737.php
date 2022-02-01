@@ -23,10 +23,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //
+    }
+    public function boot(Application $app)
+    {
         view()->composer('*', function($view) {
             view()->share('view_name', $view->getName());
         });
     }
-   
     
 }

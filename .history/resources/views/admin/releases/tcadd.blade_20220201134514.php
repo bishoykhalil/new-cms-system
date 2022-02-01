@@ -4,7 +4,7 @@
     <h3 > <strong> {{$cr->name}} </h3></strong>
     
   <br> 
-        <form method="post" action="{{route('tc.store',['cr'=>$cr,'view_name'=>$view_name])}}" enctype="multipart/form-data" >
+        <form method="post" action="{{route('tc.store',$cr->id)}}" enctype="multipart/form-data" >
             @csrf
                 <div class="form-group">
                     <label for="title">Test Case Name</label>

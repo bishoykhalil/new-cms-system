@@ -15,7 +15,7 @@
           <div class="card-body">
             <h2 class="card-title">{{$cr->name}}</h2>
 
-            <a href="{{route('tc.show',$cr->id)}}" class="btn btn-primary">Read More &rarr;</a>
+            <a href="{{route('tc.show')}}" class="btn btn-primary">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
             By

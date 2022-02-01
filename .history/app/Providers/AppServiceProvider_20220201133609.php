@@ -21,12 +21,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        view()->composer('*', function($view) {
-            view()->share('view_name', $view->getName());
-        });
-    }
-   
-    
+    public function boot(Application $app)
+{
+    view()->composer('*', function($view) {
+        view()->share('view_name', $view->getName());
+    });
+}
 }

@@ -39,8 +39,8 @@ Route::middleware('auth')->group(function () {
 
     //new TC
     Route::get('/admin/releases/{cr}/tccreate', [App\Http\Controllers\TcController::class, 'create'])->name('tc.create');
-    Route::post('/admin/releases/{cr}/tcs/{view_name}', [App\Http\Controllers\TcController::class, 'store'])->name('tc.store');
-    Route::get('/{cr}/tcs', [App\Http\Controllers\TcController::class, 'show'])->name('tc.show');
+    Route::post('/admin/releases/{cr}/tcs', [App\Http\Controllers\TcController::class, 'store'])->name('tc.store');
+    Route::post('/{cr}/tcs', [App\Http\Controllers\TcController::class, 'show'])->name('tc.show');
 
 
 });

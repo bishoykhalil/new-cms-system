@@ -24,10 +24,10 @@ class TcController extends Controller
     }
 
 
-    public function store(Request $request,Crs $cr,$view_name){
-     
+    public function store(Request $request,Crs $cr){
+        
         $crs= Crs::all();
-        $tcs = Tc::all();
+       
         $Tc = new Tc;
 
         $Tc->crs_id =$cr->id;
@@ -36,17 +36,23 @@ class TcController extends Controller
         $Tc->status = $request->status;
         $Tc->scope = $request->scope;
         $Tc->save();
-              
+      
+        // auth()->user()->tcs()->create(request([
+        //     'crs_id'=>$id,
+        //         'name',
+        //         'status',
+        //         'scope'
+        //    ]));
+    
 
-      //  $view_name =view()->share('view_name');
        
-if ($view_name == 'cr-tc'){
-    return redirect()->route('tc.show',['cr'=>$cr,'tcs'=>$tcs]);
-  }else {
-    return redirect()->route('tc.create',['cr'=>$cr]);
+
+    //    // Session()->flash('system-created-message',$inputs['name'].' Created Successfully');
+       
+     return redirect()->route('tc.create',['cr'=>$cr]);
+
+   
+   
+    }
+
 }
-     
-
- return $view_name;
-}}
-
