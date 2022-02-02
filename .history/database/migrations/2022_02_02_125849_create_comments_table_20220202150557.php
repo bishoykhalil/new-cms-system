@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToReleasesTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddUserIdToReleasesTable extends Migration
      */
     public function up()
     {
-        Schema::table('releases', function (Blueprint $table) {
-            //
-            $table->integer('user_id');
+        Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+            $table->integer('cr_id')->index();
+            $table->timestamps();
         });
     }
 
@@ -26,9 +27,6 @@ class AddUserIdToReleasesTable extends Migration
      */
     public function down()
     {
-        Schema::table('releases', function (Blueprint $table) {
-            //
-            $table->dropColumn('user_id');
-        });
+        Schema::dropIfExists('comments');
     }
 }
