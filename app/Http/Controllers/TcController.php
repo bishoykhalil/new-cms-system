@@ -25,7 +25,7 @@ class TcController extends Controller
 
 
     public function store(Request $request,Crs $cr,$view_name){
-     
+
         $crs= Crs::all();
         $tcs = Tc::all();
         $Tc = new Tc;
@@ -36,22 +36,23 @@ class TcController extends Controller
         $Tc->status = $request->status;
         $Tc->scope = $request->scope;
         $Tc->save();
-            
-     
+
+
         Session()->flash('cr-creat-message',$Tc->name.' Created Successfully');
 if ($view_name == 'cr-tc'){
     return redirect()->route('tc.show',['cr'=>$cr,'tcs'=>$tcs]);
   }else {
     return redirect()->route('tc.create',['cr'=>$cr]);
 }
-     
+
 }
 
 public function updateStatus (Request $request,Tc $tc ){
     $tc->update($request->only([$request->status=>'status']));
+    $tc->update($request->only([$request->scope=>'scope']));
     $cr= Crs::all()->where('id',$tc->crs_id);
 
-    
+
     Session()->flash('tc-updated-message',$tc->name.' Status updated Successfully');
     return redirect()->back();
 

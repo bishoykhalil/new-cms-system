@@ -18,11 +18,11 @@
         <hr>
 
         <!-- add TCs -->
-        
+
         <br>
 
         <form class="media-body" method="post" action="{{route('tc.store',['cr'=>$cr,'view_name'=>$view_name])}}" enctype="multipart/form-data" >
-          
+
           @if (Session::has('cr-creat-message'))
           <div class="alert alert-success"> {{Session::get('cr-creat-message')}}</div>
           @elseif (Session::has('tc-updated-message'))
@@ -42,23 +42,23 @@
               <div class="form-group">
                   <label for="status" >Status</label>
                   <br>
-                  <select class="form-group" name="status" id="status">  
-                     <option value="Not Started">Not Started</option>            
+                  <select class="form-group" name="status" id="status">
+                     <option value="Not Started">Not Started</option>
                     <option value="Passed">Passed</option>
                     <option value="Blocked">Blocked</option>
                     <option value="Failed">Failed</option>
                     <option value="Invalied">Invalied</option>
-                    <option value="Execluded">Execluded</option>                   
-                  </select>               
+                    <option value="Execluded">Execluded</option>
+                  </select>
               </div>
-              <div>
+                    <div>
               <label for="scope" >Scope</label>
               <br>
-              <select class="form-group" name="scope" id="status">  
-              <option value="e2e">E2E</option>            
-                <option value="iot">IOT</option>
-                <option value="uat">UAT</option>
-                                
+              <select class="form-group" name="scope" id="status">
+              <option value="E2E">E2E</option>
+                <option value="IOT">IOT</option>
+                <option value="UAT">UAT</option>
+
               </select>
                       </div>
 
@@ -74,7 +74,7 @@
 
         <blockquote class="blockquote">
           <p class="mb-0"></p>
-          <footer class="blockquote-footer">Current Status 
+          <footer class="blockquote-footer">Current Status
             <cite title="Source Title">{{$cr->status}}</cite>
           </footer>
         </blockquote>
@@ -98,43 +98,49 @@
                    <th>Update Status</th>
                </tr>
                </thead>
-              
+
                <tbody>
-                  
-                @foreach ($tcs->where('crs_id',$cr->id) as $tc)    
-             
+
+                @foreach ($tcs->where('crs_id',$cr->id) as $tc)
+
  <tr>
-      <td>{{$tc->name}}</td>    
+      <td>{{$tc->name}}</td>
      <td>{{$tc->scope}}</td>
      <td class="  btn-info btn-icon-split"><Strong>{{$tc->status}}</Strong></td>
      <td class="text-fail" >
 
-     
+
         <form method="post" action="{{route('tc.updateStatus',['tc'=>$tc,'view_name'=>$view_name])}}" enctype="multipart/form-data">
           @csrf
           @method('PATCH')
-         <select class="animated--fade-in" name="status" id="status">  
-         <option value="Not Started">Not Started</option>            
+         <select class="animated--fade-in" name="status" id="status">
+         <option value="Not Started">Not Started</option>
           <option value="Passed">Passed</option>
           <option value="Blocked">Blocked</option>
           <option value="Failed">Failed</option>
           <option value="Invalied">Invalied</option>
-          <option value="Execluded">Execluded</option>                   
-        </select>   
-        <span  class="" >                   
-   
+          <option value="Execluded">Execluded</option>
+        </select>
+         <select class="form-group" name="scope" id="status">
+                      <option value="E2E">E2E</option>
+                        <option value="IOT">IOT</option>
+                        <option value="UAT">UAT</option>
+
+                      </select>
+        <span  class="" >
+
         <button   type="submit"  class="btn-circle btn-sm" >Update</button>
       </span>
-    
+
     </form>
-  
-  
+
+
      </td>
-    
- 
+
+
  </tr>
- 
- @endforeach 
+
+ @endforeach
                </tbody>
            </table>
        </div>
@@ -168,30 +174,30 @@
 
         <!-- Single Comment -->
         <div class="media mb-4">
-          
+
           <div class="media-body">
             <h5 class="mt-0">Bishoy Khalil</h5>
-            Ne Cr has been submitted , you can check it now 
-            Ne Cr has been submitted , you can check it now 
-            Ne Cr has been submitted , you can check it now 
+            Ne Cr has been submitted , you can check it now
+            Ne Cr has been submitted , you can check it now
+            Ne Cr has been submitted , you can check it now
           </div>
           <br>
-          <footer class="blockquote-footer">Posted on 
+          <footer class="blockquote-footer">Posted on
             <cite title="Source Title">{{$cr->created_at}}</cite>
           </footer>
         </div>
- 
+
       <!-- Single Comment -->
       <div class="media mb-4">
-          
+
         <div class="media-body">
           <h5 class="mt-0">Bishoy Khalil</h5>
-          Ne Cr has been submitted , you can check it now 
-          Ne Cr has been submitted , you can check it now 
-          Ne Cr has been submitted , you can check it now 
+          Ne Cr has been submitted , you can check it now
+          Ne Cr has been submitted , you can check it now
+          Ne Cr has been submitted , you can check it now
         </div>
         <br>
-        <footer class="blockquote-footer">Posted on 
+        <footer class="blockquote-footer">Posted on
           <cite title="Source Title">{{$cr->created_at}}</cite>
         </footer>
       </div>
