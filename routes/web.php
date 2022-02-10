@@ -42,8 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/releases/{cr}/tcs/{view_name}', [App\Http\Controllers\TcController::class, 'store'])->name('tc.store');
     Route::get('/{cr}/tcs', [App\Http\Controllers\TcController::class, 'show'])->name('tc.show');
     Route::patch('/{tc}/updatestatus/{view_name}', [App\Http\Controllers\TcController::class, 'updateStatus'])->name('tc.updateStatus');
-   
-    //new Comments
-    Route::get('/addcomments', [App\Http\Controllers\CommentController::class, 'create'])->name('tc.create');
 
+    //new Comments
+    Route::get('/comments', [App\Http\Controllers\CommentController::class, 'index'])->name('comment.index');
+    Route::post('/comments/store', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
 });

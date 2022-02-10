@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Crs;
 use App\Models\Tc;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class TcController extends Controller
@@ -12,10 +13,10 @@ class TcController extends Controller
 
     public function  show(Crs $cr){
         $tcs = Tc::all();
-        return view('cr-tc',['cr'=>$cr,'tcs'=>$tcs]);
+        $comments = Comment::where('cr_id',$cr->id)->get();        
+        //where(id,$cr->id);
+        return view('cr-tc',['cr'=>$cr,'tcs'=>$tcs,'comments'=>$comments]);
     }
-
-
 
 
     public function  create(Crs $cr){

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Comment;
+use Auth ;
 class CommentController extends Controller
 {
+
+  
     /**
      * Display a listing of the resource.
      *
@@ -35,6 +38,18 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
+        $user = Auth::user();
+
+        $data = [
+            'cr_id' => $request->cr_id,
+            'author'=>$user->name,
+            'body'=>$request->body,
+        ];
+
+        Comment::create($data);
+        $request->session()->flash('comment message', 'Your Comment has been posted');
+
+        return redirect()->back();
     }
 
     /**

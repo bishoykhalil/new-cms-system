@@ -7,7 +7,7 @@
 
         <!-- Author -->
         <p class="lead">
-
+        {{$cr->release->system->name}}-{{$cr->release->release_name}}
         </p>
 
         <hr>
@@ -27,6 +27,9 @@
           <div class="alert alert-success"> {{Session::get('cr-creat-message')}}</div>
           @elseif (Session::has('tc-updated-message'))
        <div class="alert alert-success"> {{Session::get('tc-updated-message')}}</div>
+       @elseif (Session::has('comment message'))
+          <div class="alert alert-success"> {{Session::get('comment message')}}</div>
+        
           @endif
           <h4 >Add New Test Case </h4>
           @csrf
@@ -128,7 +131,7 @@
 
                       </select>
         <span  class="" >
-
+<br>
         <button   type="submit"  class="btn-circle btn-sm" >Update</button>
       </span>
 
@@ -160,47 +163,39 @@
 
 
         <!-- Comments Form -->
+
         <div class="card my-4">
+       
           <h5 class="card-header">Leave a Comment:</h5>
           <div class="card-body">
-            <form>
+            <form method="post" action="{{route('comment.store')}}">
+            @csrf
+
+              <input type="hidden" name="cr_id" value="{{$cr->id}}">
+
               <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
-              </div>
+                <textarea name="body" class="form-control" rows="3"></textarea>
+              </div><br>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>
 
         <!-- Single Comment -->
+        @foreach($comments as $comment)
         <div class="media mb-4">
 
           <div class="media-body">
-            <h5 class="mt-0">Bishoy Khalil</h5>
-            Ne Cr has been submitted , you can check it now
-            Ne Cr has been submitted , you can check it now
-            Ne Cr has been submitted , you can check it now
+            <h4 class="mt-0"><strong>{{$comment->author}}</h4></strong>
+            {{$comment->body}}
           </div>
           <br>
           <footer class="blockquote-footer">Posted on
-            <cite title="Source Title">{{$cr->created_at}}</cite>
+            <cite title="Source Title">{{$comment->created_at}}</cite>
           </footer>
         </div>
-
-      <!-- Single Comment -->
-      <div class="media mb-4">
-
-        <div class="media-body">
-          <h5 class="mt-0">Bishoy Khalil</h5>
-          Ne Cr has been submitted , you can check it now
-          Ne Cr has been submitted , you can check it now
-          Ne Cr has been submitted , you can check it now
-        </div>
-        <br>
-        <footer class="blockquote-footer">Posted on
-          <cite title="Source Title">{{$cr->created_at}}</cite>
-        </footer>
-      </div>
+@endforeach
+      
 
 
 

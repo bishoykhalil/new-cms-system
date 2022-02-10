@@ -16,7 +16,7 @@ class Comment extends Model
         'author',
         'body',
         'is_active',
-        'release_id'
+        
         ];
 
         
