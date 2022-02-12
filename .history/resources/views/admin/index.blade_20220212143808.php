@@ -1,0 +1,17 @@
+<x-admin-master>
+
+@section('content')
+
+
+<h1 class="h3 mb-4 text-gray-800">Dash Board</h1>
+
+
+
+@endsection
+
+@section('scripts')
+
+
+@endsection
+
+</x-admin-master>
