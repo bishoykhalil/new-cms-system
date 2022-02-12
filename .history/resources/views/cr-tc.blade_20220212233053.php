@@ -129,21 +129,21 @@
         <blockquote class="blockquote">
           <p class="mb-0"></p>
           <footer class="blockquote-footer">Current Status
-            <cite title="Source Title"><strong>{{$cr->status}}</strong></cite>
+            <cite title="Source Title"><strong>{{$cr->status}}</strong><</cite>
           </footer>
         </blockquote>
 
         <blockquote class="blockquote">
           <p class="mb-0"></p>
           <footer class="blockquote-footer">TE Support : 
-            <cite title="Source Title"><strong>{{$cr->internal_support}}</strong></cite>
+            <cite title="Source Title"><strong>{{$cr->internal_support}}</strong><</cite>
           </footer>
         </blockquote>
 
         <blockquote class="blockquote">
           <p class="mb-0"></p>
           <footer class="blockquote-footer">Vendor  Support : 
-            <cite title="Source Title"><strong>{{$cr->external_support}}</strong></cite>
+            <cite title="Source Title"><strong>{{$cr->external_support}}</strong><</cite>
           </footer>
         </blockquote>
 
