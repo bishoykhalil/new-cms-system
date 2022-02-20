@@ -1,6 +1,10 @@
 <x-admin-master>
-    @section('content')
 
+
+
+
+    @section('content')
+   
     <h1>Create New CR</h1>
     @if (Session::has('cr-created-message'))
     <div class="alert alert-success"> {{Session::get('cr-created-message')}}</div>
@@ -55,6 +59,15 @@
   <label for="release_name">Vendor Support</label>
   <input type="text"
          name="external_support"
+         class="form-control"
+         id="release_name"
+         aria-describedby=""
+         placeholder="External Support" required>
+</div>
+<div class="form-group">
+  <label for="release_name">UAT Support</label>
+  <input type="text"
+         name="uat_support"
          class="form-control"
          id="release_name"
          aria-describedby=""
@@ -137,5 +150,5 @@
     <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
   
           @endsection
-
+@endif
 </x-admin-master>

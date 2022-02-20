@@ -48,7 +48,8 @@ public function index(){
         'hasE2E',
         'internal_support',
         'external_support',
-        'dependOn'
+        'dependOn',
+        'uat_support'
        ]));
 
 
@@ -58,8 +59,11 @@ public function index(){
       return redirect()->route('cr.create',['releases'=>$releases,'crs'=>$crs]);
     }
 
-    public function updateStatus (Cr $cr){
-      $tc->update(['status'=>$request->status]);
-      return redirect()->route('cr.create');
+    public function updateStatus (Request $request,Crs $cr){
+
+
+      $cr->update(['status'=>$request->status]);
+      Session()->flash('cr-changeStatus-message','CR Status Updated Successfully to '.$request['status']);
+      return redirect()->back();
   }
 }

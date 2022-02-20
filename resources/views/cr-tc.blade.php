@@ -8,16 +8,50 @@
         <!-- Author -->
         <p class="lead">
         {{$cr->release->system->name}}-{{$cr->release->release_name}}
+        @if (Session::has('cr-creat-message'))
+          <div class="alert alert-success"> {{Session::get('cr-creat-message')}}</div>
+          @elseif (Session::has('tc-updated-message'))
+       <div class="alert alert-success"> {{Session::get('tc-updated-message')}}</div>
+       @elseif (Session::has('comment message'))
+          <div class="alert alert-success"> {{Session::get('comment message')}}</div>
+          @elseif (Session::has('cr-changeStatus-message'))
+          <div class="alert alert-success"> {{Session::get('cr-changeStatus-message')}}</div>
+          @endif
         </p>
-
+     
         <hr>
 
         <!-- Date/Time -->
-        <p>Posted on {{$cr-> created_at}}</p>
+        <div class="card bg-primary text-white shadow">
+      <div class="card-body">
+        Current CR Status 
+        <div class="text-Black-50 large"><strong>{{$cr->status}}</strong></div>
+      </div>
+    </div>
+<br>
 
-        <hr>
+<form method="post" action="{{route('cr.updateStatus',[$cr])}}" enctype="multipart/form-data">
+          @csrf
+          @method('PATCH')
+     <p>Change CR Status : </p>
+   <select  class="form-control" name="status" id="status">              
+      <option value="review">Review</option>
+      <option value="Test Cases Review">Test Cases Review</option>
+      <option value="IOT">IOT Execution</option>
+      <option value="E2E">E2E Execution</option>
+      <option value="UAT">UAT</option>
+      <option value="Deployment">Deployment</option>
+    </select>
+    <span  class="" >
+<br>
+        <button   type="submit"  class="btn-circle btn-sm" >Update CR Status</button>
+      </span>
+    </form>
+
+<br>
+    <hr>
 <!-- Cards of Status -->
-
+<p> Test Execution Summary : </p>
 <div class="row">
   <div class="col-lg-6 mb-4">
     <div class="card bg-primary text-white shadow">
@@ -74,14 +108,7 @@
 
         <form class="media-body" method="post" action="{{route('tc.store',['cr'=>$cr,'view_name'=>$view_name])}}" enctype="multipart/form-data" >
 
-          @if (Session::has('cr-creat-message'))
-          <div class="alert alert-success"> {{Session::get('cr-creat-message')}}</div>
-          @elseif (Session::has('tc-updated-message'))
-       <div class="alert alert-success"> {{Session::get('tc-updated-message')}}</div>
-       @elseif (Session::has('comment message'))
-          <div class="alert alert-success"> {{Session::get('comment message')}}</div>
-        
-          @endif
+         
           <h4 >Add New Test Case </h4>
           @csrf
               <div class="form-group">
@@ -126,12 +153,7 @@
         <!-- Post Content -->
         <p> {{$cr->name}}</p>
 
-        <blockquote class="blockquote">
-          <p class="mb-0"></p>
-          <footer class="blockquote-footer">Current Status
-            <cite title="Source Title"><strong>{{$cr->status}}</strong></cite>
-          </footer>
-        </blockquote>
+       
 
         <blockquote class="blockquote">
           <p class="mb-0"></p>
@@ -153,11 +175,14 @@
             <cite title="Source Title"><strong>{{$cr->dependOn}}</strong></cite>
           </footer>
         </blockquote>
+        <blockquote class="blockquote">
+          <p class="mb-0"></p>
+          <footer class="blockquote-footer">UAT Support : 
+            <cite title="Source Title"><strong>{{$cr->uat_support}}</strong></cite>
+          </footer>
+        </blockquote>
 
         <hr>
-
- 
-
  <!-- show all TCs for CR -->
  <br>
  <div class="card shadow mb-4">

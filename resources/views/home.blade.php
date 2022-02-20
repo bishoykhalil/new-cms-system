@@ -9,7 +9,7 @@
         <!-- Blog Post -->
         @foreach ($crs as $cr)
 
-
+        
         <div class="card mb-4">
           {{-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> --}}
           <div class="card-body">
@@ -18,8 +18,15 @@
               {{$cr->release->system->name}}-{{$cr->release->release_name}}
               </p>
 
-              
+              <div class="card bg-primary text-white shadow">
+      <div class="card-body">
+        CR Status 
+        <div class="text-Black-50 large"><strong>{{$cr->status}}</strong></div>
+      </div>
+    </div>
+<br>
 <!-- Cards of Status -->
+
 
 <div class="row">
   <div class="col-lg-6 mb-4">

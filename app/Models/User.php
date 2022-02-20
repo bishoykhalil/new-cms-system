@@ -67,6 +67,22 @@ class User extends Authenticatable
         public function tcs(){
             return $this->hasMany(Tc::class);
         }
+        public function permissions(){
+            return $this->belongsToMany(Permission::class);
+        }
+        public function roles(){
+            return $this->belongsToMany(Role::class);
+        }
+        
+
+        //roles
+        public function userHAsRole($role_slug){
+            foreach($this->roles as $role){
+                   if($role_slug == $role->slug) 
+                   return true;
+            }
+            return false;
+        }
         
         
 }

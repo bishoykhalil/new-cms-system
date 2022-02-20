@@ -19,7 +19,8 @@ class Crs extends Model
     'release_id',
     'internal_support',
     'external_support',
-    'dependOn'
+    'dependOn',
+    'uat_support'
     ];
 
     public function tc()

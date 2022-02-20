@@ -36,14 +36,14 @@
             </a>
           </li>
 
-
-          @if (Auth::check())
+     
+          @if(Auth::check() && auth()->user()->userHasRole("admin"))
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.index')}}">Admin</a>
-          </li>
+          </li> }
   @else
 <li class="nav-item">
-  <a class="nav-link" href="/login">Login</a>
+  <a class="nav-link" href="{{route('login')}}">Login</a>
 </li>
           @endif
 

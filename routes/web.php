@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/releases/crcreate', [App\Http\Controllers\CrController::class, 'create'])->name('cr.create');
     Route::post('/admin/releases/crsave', [App\Http\Controllers\CrController::class, 'store'])->name('cr.store');
     Route::post('/admin/releases/crs', [App\Http\Controllers\CrController::class, 'index'])->name('cr.index');
+    Route::patch('/{cr}/updatestatus', [App\Http\Controllers\CrController::class, 'updateStatus'])->name('cr.updateStatus');
 
 
     //new TC
