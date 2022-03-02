@@ -2,14 +2,12 @@
 
 @section('content')
 
-<h1 class="my-4">December Release
-          <small>Currents CRs</small>
+<h1 class="my-4">Current CRs
+          <small></small>
         </h1>
 
         <!-- Blog Post -->
-        @foreach ($crs as $cr)
-
-        
+        @foreach ($crs as $cr)       
         <div class="card mb-4">
           {{-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> --}}
           <div class="card-body">
@@ -17,10 +15,13 @@
             <p class="lead">
               {{$cr->release->system->name}}-{{$cr->release->release_name}}
               </p>
+              <p >
+             
+              </p>
 
               <div class="card bg-primary text-white shadow">
       <div class="card-body">
-        CR Status 
+        Current CR Status 
         <div class="text-Black-50 large"><strong>{{$cr->status}}</strong></div>
       </div>
     </div>

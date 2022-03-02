@@ -5,6 +5,7 @@ use App\Models\Post;
 use App\Models\Tc;
 use Illuminate\Http\Request;
 use App\Models\Crs;
+use App\Models\User;
 class HomeController extends Controller
 {
     /**
@@ -30,10 +31,10 @@ class HomeController extends Controller
     }
 
     public function index(){
-
-        $crs = auth()->user()->crs;
+      //  
+        $crs =Crs::where('assinedTo',auth()->user()->id)->get();
         $tcs = Tc::all();
-        return view('home',['crs'=>$crs,'tcs'=>$tcs]);
-      
+        $users = User::all();
+        return view('home',['crs'=>$crs,'tcs'=>$tcs,'users'=>$users]);
       }
 }

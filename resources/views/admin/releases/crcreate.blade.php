@@ -82,6 +82,15 @@
          aria-describedby=""
          placeholder="Write Prerequisties" required>
 </div>
+<div class="form-group">
+<label for="release_id" >Assign To :</label>
+           <select class="form-control" name="assinedTo" id="assinedTo">
+           @foreach ($users  as $user)
+           <option value="{{$user->id}}">{{$user->name}}</option>
+           @endforeach                                                    
+           </select>
+           </div>
+
 
 <h5><div class="form-group"><label for="hasIOT">HAS IOT</label>  <input  type="checkbox" id="IOT" name="hasIOT" value="1"></div>
 
@@ -150,5 +159,5 @@
     <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
   
           @endsection
-@endif
+
 </x-admin-master>

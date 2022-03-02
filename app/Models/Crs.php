@@ -20,7 +20,8 @@ class Crs extends Model
     'internal_support',
     'external_support',
     'dependOn',
-    'uat_support'
+    'uat_support',
+    'assinedTo'
     ];
 
     public function tc()
@@ -37,7 +38,11 @@ class Crs extends Model
          {
              return $this->belongsTo(User::class);
          }
-    public function comments() {
-        return $this->hasMany(Comments::class);
-    }     
+         public function assiginedTo()
+         {
+             return $this->belongsToMany(User::class);
+         }
+         public function comments() {
+              return $this->hasMany(Comments::class);
+        }     
 }
